@@ -9,21 +9,22 @@
 
 <div class="home-container">
   <div>
+    
     <h3>Browse Rooms</h3>
+    <a href="{% url 'home' %}">All</a>
     {% for topi in topic %}
+
     <div>
-      <small>{{topi}}</small>
-      <br>
-      <br>
-      <br>
+      <a href="{% url 'home' %}?q={{topi.name}}">{{topi.name}}</a>
     </div>
 
     {% endfor %}
-    <hr>
+    <hr />
   </div>
 
   <div>
-    <a href="">Create Rooms</a>
+    <h5>{{room_count}} rooms Available</h5>
+    <a href="{% url 'create-room' %}">Create Rooms</a>
 
     {% for room in rooms %}
 
@@ -38,7 +39,6 @@
 
     {% endfor %}
   </div>
-
 </div>
 
 {% endblock content %}
